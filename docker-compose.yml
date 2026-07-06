@@ -3,6 +3,8 @@ services:
   api:
     build: .
     container_name: search_api
+    environment:
+      - PYTHONPATH=/app
 
     ports:
       - "8000:8000"

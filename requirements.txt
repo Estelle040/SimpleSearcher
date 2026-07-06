@@ -22,3 +22,7 @@ httpx==0.28.1
 aiohttp
 
 python-multipart==0.0.20
+
+pytest
+pytest-asyncio
+httpx
