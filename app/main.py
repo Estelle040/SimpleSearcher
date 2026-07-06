@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from app.services.elastic import wait_for_elasticsearch
 from app.database import Base, engine
 from app.services.elastic import create_index, check_connection
+from app.routers.documents import router as documents_router
 
 
 @asynccontextmanager
@@ -30,7 +31,10 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-app.include_router(admin_router)
+
 @app.get("/")
 async def root():
     return {"message": "Service is running"}
+
+app.include_router(admin_router)
+app.include_router(documents_router)
